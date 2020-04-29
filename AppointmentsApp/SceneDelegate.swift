@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowView = (scene as? UIWindowScene) else { return }
         
         let navController = UINavigationController(rootViewController: AppointmentsListVC())
-        
+
         window = UIWindow(frame: windowView.coordinateSpace.bounds)
         window?.windowScene = windowView
         window?.rootViewController = navController

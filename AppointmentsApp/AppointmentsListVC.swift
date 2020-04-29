@@ -16,9 +16,28 @@ class AppointmentsListVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "My Appointments"
         configureTableView()
+        tableView.rowHeight = 200
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
+
     }
     
+    @objc func backTapped() {
+
+    }
+    
+    @objc func addTapped() {
+        
+        let addVC = AddAppointmentVC()
+        navigationController?.pushViewController(addVC, animated: true)
+//        present(addVC, animated: true, completion: nil)
+        
+    }
+    
+    
+
     func configureTableView() {
         view.addSubview(tableView)
         tableView.delegate = self
@@ -35,18 +54,19 @@ extension AppointmentsListVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       // let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? AppointmentCell
+        //let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? AppointmentCell
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "Cell")
-
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .full
+        dateFormatter.locale = Locale(identifier: "en_US")
 
         cell.textLabel?.text = appointments[indexPath.row]
-        cell.detailTextLabel?.text = "\(Date())"
+        cell.detailTextLabel?.text = "\(dateFormatter.string(from: Date()))"
         return cell
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+    func tableView(_ tableView: UITableView, didSelect indexPath: IndexPath) {
+        
     }
-    
-    
 }

@@ -15,6 +15,8 @@
 		64A0630B2456287700A99F06 /* AppointmentsListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A0630A2456287700A99F06 /* AppointmentsListVC.swift */; };
 		64A0630D24562B2E00A99F06 /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A0630C24562B2E00A99F06 /* UIViewExt.swift */; };
 		64A0630F2456304A00A99F06 /* AppointmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A0630E2456304A00A99F06 /* AppointmentCell.swift */; };
+		64A063112456827300A99F06 /* CellStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A063102456827300A99F06 /* CellStruct.swift */; };
+		64A0631324569AEE00A99F06 /* AddAppointmentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A0631224569AEE00A99F06 /* AddAppointmentVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		64A0630A2456287700A99F06 /* AppointmentsListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsListVC.swift; sourceTree = "<group>"; };
 		64A0630C24562B2E00A99F06 /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
 		64A0630E2456304A00A99F06 /* AppointmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentCell.swift; sourceTree = "<group>"; };
+		64A063102456827300A99F06 /* CellStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellStruct.swift; sourceTree = "<group>"; };
+		64A0631224569AEE00A99F06 /* AddAppointmentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAppointmentVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,8 +71,10 @@
 				64A063042455F0D500A99F06 /* Info.plist */,
 				64A062FC2455F0CE00A99F06 /* AppointmentsApp.xcdatamodeld */,
 				64A0630A2456287700A99F06 /* AppointmentsListVC.swift */,
+				64A0631224569AEE00A99F06 /* AddAppointmentVC.swift */,
 				64A0630C24562B2E00A99F06 /* UIViewExt.swift */,
 				64A0630E2456304A00A99F06 /* AppointmentCell.swift */,
+				64A063102456827300A99F06 /* CellStruct.swift */,
 			);
 			path = AppointmentsApp;
 			sourceTree = "<group>";
@@ -145,8 +151,10 @@
 			files = (
 				64A0630F2456304A00A99F06 /* AppointmentCell.swift in Sources */,
 				64A0630D24562B2E00A99F06 /* UIViewExt.swift in Sources */,
+				64A0631324569AEE00A99F06 /* AddAppointmentVC.swift in Sources */,
 				64A0630B2456287700A99F06 /* AppointmentsListVC.swift in Sources */,
 				64A062F42455F0CE00A99F06 /* AppDelegate.swift in Sources */,
+				64A063112456827300A99F06 /* CellStruct.swift in Sources */,
 				64A062F62455F0CE00A99F06 /* SceneDelegate.swift in Sources */,
 				64A062FE2455F0CE00A99F06 /* AppointmentsApp.xcdatamodeld in Sources */,
 			);

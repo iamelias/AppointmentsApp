@@ -12,7 +12,11 @@ import UIKit
 class AppointmentCell: UITableViewCell {
     
     var appointmenTitle = UILabel()
+
     
+    func cellView(name: String) {
+
+    }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
