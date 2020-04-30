@@ -10,7 +10,7 @@ import UIKit
 
 class AppointmentsListVC: UIViewController {
     
-    var appointments: [String] = ["Apple", "Orange", "Pear", "Banana", "Grape", "Kiwi"]
+    var appointments: [Appointment] = []
     
     var tableView = UITableView()
 
@@ -24,6 +24,11 @@ class AppointmentsListVC: UIViewController {
 
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        print("viewDidAppear called")
+        tableView.reloadData()
+    }
+    
     @objc func backTapped() {
 
     }
@@ -31,11 +36,22 @@ class AppointmentsListVC: UIViewController {
     @objc func addTapped() {
         
         let addVC = AddAppointmentVC()
-        navigationController?.pushViewController(addVC, animated: true)
-//        present(addVC, animated: true, completion: nil)
+        navigationController?.pushViewController(addVC, animated: true) //presents push
+        addVC.getAppointment = self
         
+//        present(addVC, animated: true, completion: nil) //presents modally
     }
     
+    func reformatDate(index: Int) -> String? {
+        let cell: String?
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .full
+        dateFormatter.locale = Locale(identifier: "en_US")
+        
+        cell = "\(dateFormatter.string(from: appointments[index].date ?? Date()))"
+        
+        return cell
+    }
     
 
     func configureTableView() {
@@ -50,23 +66,41 @@ class AppointmentsListVC: UIViewController {
 
 extension AppointmentsListVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+       // return appointments.count
         return appointments.count
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? AppointmentCell
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "Cell")
+    
+        if appointments[indexPath.row].name == "" {
+            appointments[indexPath.row].name = "No name"
+        }
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .full
-        dateFormatter.locale = Locale(identifier: "en_US")
+        cell.textLabel?.text = appointments[indexPath.row].name
+        
+        cell.detailTextLabel?.text = reformatDate(index: indexPath.row) ?? "Error"
 
-        cell.textLabel?.text = appointments[indexPath.row]
-        cell.detailTextLabel?.text = "\(dateFormatter.string(from: Date()))"
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelect indexPath: IndexPath) {
-        
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true) //unhighlights row after auto highlight on selection
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        appointments.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .fade)
+    }
+}
+
+extension AppointmentsListVC: AddAppointmentDelegate {
+    func addAppointment(appointment: Appointment) {
+                
+        appointments.append(appointment)
+    }
+    
+    
 }
