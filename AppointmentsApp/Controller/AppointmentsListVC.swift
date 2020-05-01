@@ -30,7 +30,6 @@ class AppointmentsListVC: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        print("viewDidAppear called")
         tableView.reloadData()
     }
 
@@ -86,7 +85,6 @@ class AppointmentsListVC: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.set(to: view)
-        tableView.register(AppointmentCell.self, forCellReuseIdentifier: "Cell")
     }
 }
 
