@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		645426F5245A9402009A8F2A /* DatabaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645426F4245A9402009A8F2A /* DatabaseController.swift */; };
 		64A062F42455F0CE00A99F06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A062F32455F0CE00A99F06 /* AppDelegate.swift */; };
 		64A062F62455F0CE00A99F06 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A062F52455F0CE00A99F06 /* SceneDelegate.swift */; };
 		64A062FE2455F0CE00A99F06 /* AppointmentsApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 64A062FC2455F0CE00A99F06 /* AppointmentsApp.xcdatamodeld */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		645426F4245A9402009A8F2A /* DatabaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseController.swift; sourceTree = "<group>"; };
 		64A062F02455F0CE00A99F06 /* AppointmentsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppointmentsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64A062F32455F0CE00A99F06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		64A062F52455F0CE00A99F06 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 				64A0630C24562B2E00A99F06 /* UIViewExt.swift */,
 				64A0630E2456304A00A99F06 /* AppointmentCell.swift */,
 				64A063102456827300A99F06 /* CellStruct.swift */,
+				645426F4245A9402009A8F2A /* DatabaseController.swift */,
 			);
 			path = AppointmentsApp;
 			sourceTree = "<group>";
@@ -154,6 +157,7 @@
 				64A0631324569AEE00A99F06 /* AddAppointmentVC.swift in Sources */,
 				64A0630B2456287700A99F06 /* AppointmentsListVC.swift in Sources */,
 				64A062F42455F0CE00A99F06 /* AppDelegate.swift in Sources */,
+				645426F5245A9402009A8F2A /* DatabaseController.swift in Sources */,
 				64A063112456827300A99F06 /* CellStruct.swift in Sources */,
 				64A062F62455F0CE00A99F06 /* SceneDelegate.swift in Sources */,
 				64A062FE2455F0CE00A99F06 /* AppointmentsApp.xcdatamodeld in Sources */,

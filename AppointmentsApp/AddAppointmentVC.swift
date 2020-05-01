@@ -12,6 +12,7 @@ import UIKit
 struct Appointment {
     var name: String?
     var date: Date?
+    var appointmentId: String?
 }
 
 enum Messages: String {
@@ -47,24 +48,22 @@ class AddAppointmentVC: UIViewController {
         pickerLabelView()
         pickerView()
         
-        let tapped = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+        let tapped = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing)) //dismissing keyboard when view is tapped
         tapped.cancelsTouchesInView = false
         view.addGestureRecognizer(tapped)
-        
-        //messageView()
 
-
-        
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(backTapped))
     }
     
     @objc func addButtonTapped() {
         
-        var newAppointment = Appointment()
+        var newAppointment = Appointment() //reflects Core Data attributes
         newAppointment.date = picker.date
         newAppointment.name = textField.text
+        newAppointment.appointmentId = UUID().uuidString
 
         getAppointment.addAppointment(appointment: newAppointment)
+        
+        
         self.navigationController?.popViewController(animated: true) //removing VC from NavStack Stack
     }
     
@@ -73,8 +72,7 @@ class AddAppointmentVC: UIViewController {
     func createMessage() {
         message.text = "Enter name and select date"
     }
-    
-    
+        
     func addButtonView() {
         addButton.backgroundColor = .systemBlue
         addButton.setTitleColor(.black, for: .normal)
@@ -92,7 +90,7 @@ class AddAppointmentVC: UIViewController {
         view.addSubview(addButton)
         addButtonConstraints()
     }
-    
+        
     func textFieldView() {
         textField.placeholder = Messages.Appointment.rawValue
          textField.backgroundColor = .white
@@ -169,7 +167,7 @@ class AddAppointmentVC: UIViewController {
 
 extension AddAppointmentVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
+        textField.resignFirstResponder() //dismissing keyboard when done key is tapped
     }
 }
 
