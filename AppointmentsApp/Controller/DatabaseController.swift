@@ -43,7 +43,6 @@ class DatabaseController: NSObject {
                 }
             }
         }
-        
     }
 }
 
