@@ -16,9 +16,9 @@ class AppointmentsListVC: UIViewController {
     var appointments: [Appointment] = []
     var coreAppointments: [CoreAppointments] = []
     let context = DatabaseController.persistentStoreContainer().viewContext
-
+    
     var tableView = UITableView()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "My Appointments"
@@ -32,12 +32,12 @@ class AppointmentsListVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         tableView.reloadData()
     }
-
+    
     func fetchData() { //fetching persisted data from Core Data, storing data in coreAppointments arrray
         let fetchRequest: NSFetchRequest<CoreAppointments> = CoreAppointments.fetchRequest()
-//               let sortDescriptor = NSSortDescriptor(key: "date", ascending: true) //last dish is latest dated dish
-//               fetchRequest.sortDescriptors = [sortDescriptor] //last element is most recent date
-               
+        //               let sortDescriptor = NSSortDescriptor(key: "date", ascending: true) //last dish is latest dated dish
+        //               fetchRequest.sortDescriptors = [sortDescriptor] //last element is most recent date
+        
         do {
             coreAppointments = try context.fetch(fetchRequest) //getting all saved dishes and setting equal to dishes
         }
@@ -52,7 +52,7 @@ class AppointmentsListVC: UIViewController {
         navigationController?.pushViewController(addVC, animated: true) //presents push
         addVC.getAppointment = self
         
-//        present(addVC, animated: true, completion: nil) //presents modally
+        //        present(addVC, animated: true, completion: nil) //presents modally
     }
     
     func reformatDate(index: Int) -> String? { //changing the date format for the tableview detail text
@@ -72,7 +72,6 @@ class AppointmentsListVC: UIViewController {
         coreApp.appointmentId = UUID().uuidString
         coreAppointments.append(coreApp)
         DatabaseController.saveContext()
-        //appointments.append(appointment)
     }
     
     func deleteCoreAppointment(appointment: CoreAppointments) { //Deletes specific appointment from Core Data
@@ -97,7 +96,7 @@ extension AppointmentsListVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? AppointmentCell
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "Cell")
-    
+        
         if coreAppointments[indexPath.row].name == "" {
             coreAppointments[indexPath.row].name = "No name"
         }
@@ -105,7 +104,7 @@ extension AppointmentsListVC: UITableViewDelegate, UITableViewDataSource {
         cell.textLabel?.text = coreAppointments[indexPath.row].name
         
         cell.detailTextLabel?.text = reformatDate(index: indexPath.row) ?? "Error"
-
+        
         return cell
     }
     
@@ -134,26 +133,26 @@ extension AppointmentsListVC: AddAppointmentDelegate {
     }
     
     func setupNotification(appointment: Appointment) {
-          
-          let timeComponents = Calendar.current.dateComponents([.hour, .minute], from: appointment.date!) //needed for message
-    
-          let notificationMessage = "Remember \(appointment.name!) is at: \(timeComponents.hour!):\(timeComponents.minute!) today "//message that will be on notification"
-          let content = UNMutableNotificationContent()
-          content.body = notificationMessage
-          content.sound = UNNotificationSound.default
-          
-          //Notification will appear on device at 7:30 on chosen day
+        
+        let timeComponents = Calendar.current.dateComponents([.hour, .minute], from: appointment.date!) //needed for message
+        
+        let notificationMessage = "Remember \(appointment.name!) is at: \(timeComponents.hour!):\(timeComponents.minute!) today "//message that will be on notification"
+        let content = UNMutableNotificationContent()
+        content.body = notificationMessage
+        content.sound = UNNotificationSound.default
+        
+        //Notification will appear on device at 7:30 on chosen day
         var dateComponents = Calendar.current.dateComponents([.month, .day], from: appointment.date!)
-          dateComponents.hour = 20
-          dateComponents.minute = 24
+        dateComponents.hour = 20
+        dateComponents.minute = 24
         
         //making notification trigger
-          let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
-          
-          if let identifier = appointment.appointmentId {
-              let request = UNNotificationRequest(identifier: identifier, content: content, trigger:  trigger)
-              let nCenter = UNUserNotificationCenter.current()
-              nCenter.add(request, withCompletionHandler: nil)
-          }
-     }
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+        
+        if let identifier = appointment.appointmentId {
+            let request = UNNotificationRequest(identifier: identifier, content: content, trigger:  trigger)
+            let nCenter = UNUserNotificationCenter.current()
+            nCenter.add(request, withCompletionHandler: nil)
+        }
+    }
 }

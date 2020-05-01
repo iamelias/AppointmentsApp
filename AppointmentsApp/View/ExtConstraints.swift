@@ -41,12 +41,4 @@ extension AddAppointmentVC {
         picker.heightAnchor.constraint(equalToConstant: 50).isActive = true
         picker.centerYAnchor.constraint(equalTo: pickerLabel.bottomAnchor, constant: 5).isActive = true
     }
-    
-    func addMessageConstraints() {
-        message.translatesAutoresizingMaskIntoConstraints = false
-        message.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        message.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-        message.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        message.centerYAnchor.constraint(equalTo: textField.topAnchor, constant: 50).isActive = true
-        
-    }}
+}
