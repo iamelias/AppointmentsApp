@@ -9,12 +9,6 @@
 import Foundation
 import UIKit
 
-enum Messages: String {
-    case Add
-    case PickerLabel = "Date & Time"
-    case Appointment
-}
-
 protocol AddAppointmentDelegate {
     func addAppointment(appointment: Appointment)
 }
@@ -25,6 +19,7 @@ class AddAppointmentVC: UIViewController {
     let picker = UIDatePicker()
     let addButton = UIButton()
     let pickerLabel = UILabel()
+    var image: UIImageView?
     
     var getAppointment: AddAppointmentDelegate!
     
@@ -32,18 +27,16 @@ class AddAppointmentVC: UIViewController {
         
         textField.delegate = self
         
-        title = "Add Appointment"
-        view.backgroundColor = .white //background color is default clear, which would look black and be laggy
-        
-        addButton.addTarget(self, action: #selector(addButtonTapped), for: .touchUpInside)
+        mainView()
         addButtonView()
         textFieldView()
         pickerLabelView()
         pickerView()
+        imageView()
+        checkOrientation()
+        setUpTapGesture()
         
-        let tapped = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing)) //dismissing keyboard when view is tapped
-        tapped.cancelsTouchesInView = false
-        view.addGestureRecognizer(tapped)
+        addButton.addTarget(self, action: #selector(addButtonTapped), for: .touchUpInside)
     }
     
     @objc func addButtonTapped() {
@@ -56,6 +49,28 @@ class AddAppointmentVC: UIViewController {
         getAppointment.addAppointment(appointment: newAppointment)
         
         self.navigationController?.popViewController(animated: true) //removing VC from NavStack Stack
+    }
+    
+    func setUpTapGesture() {
+        let tapped = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing)) //dismissing keyboard when view is tapped
+        tapped.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapped)
+        
+    }
+    
+    func checkOrientation() { //deciding whether to show image...dependins on orientation
+        if UIDevice.current.orientation == .landscapeLeft || UIDevice.current.orientation == .landscapeRight {
+            image!.isHidden = true
+        }
+        else {
+            image!.isHidden = false
+        }
+    }
+    
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) { //if orientation changes
+        coordinator.animate(alongsideTransition: { context in
+            self.checkOrientation()
+        })
     }
 }
 

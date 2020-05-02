@@ -12,3 +12,4 @@ struct Appointment {
     var date: Date?
     var appointmentId: String?
 }
+

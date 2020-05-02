@@ -11,6 +11,7 @@
 		645426F7245BD1EB009A8F2A /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645426F6245BD1EB009A8F2A /* Appointment.swift */; };
 		645426FC245BD562009A8F2A /* ExtConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645426FB245BD562009A8F2A /* ExtConstraints.swift */; };
 		645426FE245BD954009A8F2A /* ExtAddViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645426FD245BD954009A8F2A /* ExtAddViews.swift */; };
+		64542700245C7C47009A8F2A /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645426FF245C7C47009A8F2A /* Messages.swift */; };
 		64A062F42455F0CE00A99F06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A062F32455F0CE00A99F06 /* AppDelegate.swift */; };
 		64A062F62455F0CE00A99F06 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A062F52455F0CE00A99F06 /* SceneDelegate.swift */; };
 		64A062FE2455F0CE00A99F06 /* AppointmentsApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 64A062FC2455F0CE00A99F06 /* AppointmentsApp.xcdatamodeld */; };
@@ -25,7 +26,8 @@
 		645426F6245BD1EB009A8F2A /* Appointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
 		645426FB245BD562009A8F2A /* ExtConstraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtConstraints.swift; sourceTree = "<group>"; };
 		645426FD245BD954009A8F2A /* ExtAddViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtAddViews.swift; sourceTree = "<group>"; };
-		64A062F02455F0CE00A99F06 /* AppointmentsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppointmentsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		645426FF245C7C47009A8F2A /* Messages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
+		64A062F02455F0CE00A99F06 /* StarDay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarDay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64A062F32455F0CE00A99F06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		64A062F52455F0CE00A99F06 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		64A062FD2455F0CE00A99F06 /* AppointmentsApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AppointmentsApp.xcdatamodel; sourceTree = "<group>"; };
@@ -51,6 +53,7 @@
 			isa = PBXGroup;
 			children = (
 				645426F6245BD1EB009A8F2A /* Appointment.swift */,
+				645426FF245C7C47009A8F2A /* Messages.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -58,9 +61,9 @@
 		645426F9245BD3B8009A8F2A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				64A0630C24562B2E00A99F06 /* UIViewExt.swift */,
-				645426FB245BD562009A8F2A /* ExtConstraints.swift */,
 				645426FD245BD954009A8F2A /* ExtAddViews.swift */,
+				645426FB245BD562009A8F2A /* ExtConstraints.swift */,
+				64A0630C24562B2E00A99F06 /* UIViewExt.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -88,7 +91,7 @@
 		64A062F12455F0CE00A99F06 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				64A062F02455F0CE00A99F06 /* AppointmentsApp.app */,
+				64A062F02455F0CE00A99F06 /* StarDay.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -123,7 +126,7 @@
 			);
 			name = AppointmentsApp;
 			productName = AppointmentsApp;
-			productReference = 64A062F02455F0CE00A99F06 /* AppointmentsApp.app */;
+			productReference = 64A062F02455F0CE00A99F06 /* StarDay.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -181,6 +184,7 @@
 				64A0630B2456287700A99F06 /* AppointmentsListVC.swift in Sources */,
 				64A062F42455F0CE00A99F06 /* AppDelegate.swift in Sources */,
 				645426F5245A9402009A8F2A /* DatabaseController.swift in Sources */,
+				64542700245C7C47009A8F2A /* Messages.swift in Sources */,
 				645426FE245BD954009A8F2A /* ExtAddViews.swift in Sources */,
 				64A062F62455F0CE00A99F06 /* SceneDelegate.swift in Sources */,
 				64A062FE2455F0CE00A99F06 /* AppointmentsApp.xcdatamodeld in Sources */,
@@ -317,7 +321,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.eliashall.AppointmentsApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = StarDay;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -335,7 +339,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.eliashall.AppointmentsApp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = StarDay;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

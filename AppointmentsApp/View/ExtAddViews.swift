@@ -10,6 +10,11 @@ import Foundation
 import UIKit
 extension AddAppointmentVC {
     
+    func mainView() {
+        title = "Add Appointment"
+        view.backgroundColor = .white //background color is default clear, which would look black and be laggy
+    }
+    
     func addButtonView() {
         addButton.backgroundColor = .systemBlue
         addButton.setTitleColor(.black, for: .normal)
@@ -50,5 +55,15 @@ extension AddAppointmentVC {
         
         view.addSubview(picker)
         addPickerConstraints()
+    }
+    
+    func imageView() {
+        
+        let convertedImage = UIImage(named: "Star") //image stored in assets
+        image = UIImageView(image: convertedImage)
+        
+        view.addSubview(image!)
+        view.addSubview(image!)
+        addImageConstraints()
     }
 }

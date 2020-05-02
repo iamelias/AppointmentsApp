@@ -12,16 +12,16 @@ extension AddAppointmentVC {
     //MARK: CONSTRAINTS
     func addButtonConstraints() {
         addButton.translatesAutoresizingMaskIntoConstraints = false
-        addButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        addButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        addButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
+        addButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
         addButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         addButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
     
     func addTextFieldConstraints() {
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        textField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        textField.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
+        textField.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
         textField.heightAnchor.constraint(equalToConstant: 50).isActive = true
         textField.centerYAnchor.constraint(equalTo: addButton.topAnchor, constant: -40).isActive = true
     }
@@ -40,5 +40,13 @@ extension AddAppointmentVC {
         picker.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         picker.heightAnchor.constraint(equalToConstant: 50).isActive = true
         picker.centerYAnchor.constraint(equalTo: pickerLabel.bottomAnchor, constant: 5).isActive = true
+    }
+    
+    func addImageConstraints() {
+       image!.translatesAutoresizingMaskIntoConstraints = false
+       image!.heightAnchor.constraint(equalToConstant: 50).isActive = true
+       image!.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        image!.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        image!.centerYAnchor.constraint(equalTo: textField.topAnchor, constant: -80).isActive = true
     }
 }
