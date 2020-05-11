@@ -18,8 +18,6 @@ class DatabaseController: NSObject {
     static func persistentStoreContainer() -> NSPersistentContainer {
         
         if( persistentContainer == nil) {
-            
-            
             persistentContainer = NSPersistentContainer(name: "AppointmentsApp")
             persistentContainer!.loadPersistentStores { (storeDescription, error) in
                 if let error = error as NSError? {
