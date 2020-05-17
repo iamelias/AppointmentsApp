@@ -64,7 +64,7 @@ class AppointmentsListVC: UIViewController {
         cell = "\(dateFormatter.string(from: coreAppointments[index].date ?? Date()))"
         return cell
     }
-    
+   
     func addCoreAppointment(appointment: Appointment) { //Persisting appointment data
         let coreApp = CoreAppointments(context: context)
         coreApp.name = appointment.name
@@ -73,7 +73,7 @@ class AppointmentsListVC: UIViewController {
         coreAppointments.append(coreApp)
         DatabaseController.saveContext()
     }
-    
+
     func deleteCoreAppointment(appointment: CoreAppointments) { //Deletes specific appointment from Core Data
         context.delete(appointment)
         DatabaseController.saveContext()
@@ -141,13 +141,13 @@ extension AppointmentsListVC: AddAppointmentDelegate {
         content.body = notificationMessage
         content.sound = UNNotificationSound.default
         
-        //Notification will appear on device at 7:30 on chosen day
+        //Notification will appear on device at 9:30am on chosen day
         var dateComponents = Calendar.current.dateComponents([.month, .day], from: appointment.date!)
-        dateComponents.hour = 20
-        dateComponents.minute = 24
+        dateComponents.hour = 9
+        dateComponents.minute = 30
         
         //making notification trigger
-        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
         
         if let identifier = appointment.appointmentId {
             let request = UNNotificationRequest(identifier: identifier, content: content, trigger:  trigger)
