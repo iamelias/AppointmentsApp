@@ -143,7 +143,7 @@ extension AppointmentsListVC: AddAppointmentDelegate {
         
         //Notification will appear on device at 9:30am on chosen day
         var dateComponents = Calendar.current.dateComponents([.month, .day], from: appointment.date!)
-        dateComponents.hour = 9
+        dateComponents.hour = 7
         dateComponents.minute = 30
         
         //making notification trigger
