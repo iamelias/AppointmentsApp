@@ -15,7 +15,7 @@ The user is presented wih the 'My Appointments' view where they can see all crea
 <img src = "Images/ScreenShot1.png" width="100" height="200">
 <img src = "Images/ScreenShot2.png" width="100" height="200">
 <img src = "Images/ScreenShot3.png" width="100" height="200">
-<img src = "Images/ScreenShot4.png" width="100" height="200">
-<img src = "Images/ScreenShot5.png" width="100" height="200">
+<img src = "Images/ScreenShot4.png" width="200" height="100">
+<img src = "Images/ScreenShot5.png" width="200" height="100">
 </p>
 
