@@ -1,5 +1,5 @@
 # Star Appointments, iOS Developer: Elias Hall
-Appointments App built 100% Programatically
+Appointments App built 100% Programmatically
 
 **Run instructions:** Xcode 11.4.1, iOS Deployment Target: 13.4, iPhone 11 Pro
 
